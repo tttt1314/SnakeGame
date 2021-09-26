@@ -52,20 +52,14 @@ class Food {
 ### Optional
 * The project demonstrates an understanding of C++ functions and control structures. A variety of control structures are used in the project. The project code is clearly organized into functions.<br>
 *Yes, it can be clearly observerd in the code.*
-<br>
 * Class constructors utilize member initialization lists.
-<br>
 *e.g. In game.cpp, game object constructor used initialization list; In food.h, the food obj constructor also used the initialization list*
 * The project accepts user input and processes the input.
-<br>
 *e.g. in controller.cpp, the controller can accept the keyboard input.*
   
 * The project uses Object Oriented Programming techniques.All class data members are explicitly specified as public, protected, or private.
-<br>
 *Yeah, it can be verified in all the header files.*
 * Classes use appropriate access specifiers for class members.
-<br>
 *e.g. In gmae.h,  getScore() is a accessor for a class member; In food.h, getCounter() is also an accessor*
 * Classes encapsulate behavior.
-<br>
 *e.g. In food.h, the food's state is encapsulated. It can be accessed by only using the accessor.*
