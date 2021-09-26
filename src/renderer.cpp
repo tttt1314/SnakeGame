@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food) {
+void Renderer::Render(Snake const snake, Food &food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -48,9 +48,19 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderClear(sdl_renderer);
 
   // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
+  if(food.getState() == Food::State::normal){
+    SDL_SetRenderDrawColor(sdl_renderer, 0xA4, 0x51, 0x19, 0x00);
+  } else if (food.getState() == Food::State::silver) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xC0, 0xC0, 0xCF, 0x00);
+  } else if (food.getState() == Food::State::golden) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xD7, 0x00, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0x00);
+  }
+
+  
+  block.x = food.place.x * block.w;
+  block.y = food.place.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render snake's body

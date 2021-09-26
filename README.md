@@ -1,12 +1,25 @@
-# CPPND: Capstone Snake Game Example
+# CPPND: Capstone Snake Game 
+![GITHUB](bronze.PNG)
+![GITHUB](golden.PNG)
+![GITHUB](silver.PNG)
+## New Fearues added
+```cpp
+class Food {
+  public:
+    enum class State { normal, silver, golden };
+    Food():state(State::normal), counter(0){};
+    State getState(){ return state; };
+    void updateState();
+    void counterAdd();
+    void counterClear(){ counter = 0; };
+    int getCounter(){ return counter; };
+    SDL_Point place;
+ private:
+    State state;
+    int counter;
+};
+```
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
-
-<img src="snake_game.gif"/>
-
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
-
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -30,17 +43,29 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
-
-## CC Attribution-ShareAlike 4.0 International
-
-
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
-
-This work is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
-
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
-
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+## Rubric Points
+### Required
+* A README with instructions is included with the project
+* The README indicates which project is chosen
+* The README includes information about each rubric point addressed.
+* The submission must compile and run.
+### Optional
+* The project demonstrates an understanding of C++ functions and control structures. A variety of control structures are used in the project. The project code is clearly organized into functions.<br>
+*Yes, it can be clearly observerd in the code.*
+<br>
+* Class constructors utilize member initialization lists.
+<br>
+*e.g. In game.cpp, game object constructor used initialization list; In food.h, the food obj constructor also used the initialization list*
+* The project accepts user input and processes the input.
+<br>
+*e.g. in controller.cpp, the controller can accept the keyboard input.*
+  
+* The project uses Object Oriented Programming techniques.All class data members are explicitly specified as public, protected, or private.
+<br>
+*Yeah, it can be verified in all the header files.*
+* Classes use appropriate access specifiers for class members.
+<br>
+*e.g. In gmae.h,  getScore() is a accessor for a class member; In food.h, getCounter() is also an accessor*
+* Classes encapsulate behavior.
+<br>
+*e.g. In food.h, the food's state is encapsulated. It can be accessed by only using the accessor.*

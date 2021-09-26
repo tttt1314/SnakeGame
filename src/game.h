@@ -6,6 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "food.h"
 
 class Game {
  public:
@@ -17,7 +18,8 @@ class Game {
 
  private:
   Snake snake;
-  SDL_Point food;
+  int snake_num = 2;
+  Food food = Food(); // change food to an obj
 
   std::random_device dev;
   std::mt19937 engine;
